@@ -12,3 +12,8 @@ services:
     image: mongo
     ports:
       - "27017:27017"
+  
+  syncserver:
+    build: ./syncserver
+    ports:
+      - "3000:3000"
