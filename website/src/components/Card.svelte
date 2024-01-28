@@ -3,7 +3,7 @@
 </script>
 
 <div>
-    <img src={src} class="card" draggable="false"/>
+    <img src={src} class="card hover:drop-shadow-xl" draggable="false"/>
 </div>
 
 <style>
