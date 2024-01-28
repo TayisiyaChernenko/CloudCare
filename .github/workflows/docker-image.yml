@@ -29,6 +29,4 @@ jobs:
         context: syncserver
         file: syncserver/Dockerfile
         push: true
-        tags: ghcr.io/${{ github.repository_owner }}/syncserver:latest
-        # If you want to include the timestamp in the tag, you can use below line instead of the above
-        # tags: ghcr.io/${{ github.repository_owner }}/syncserver:$(date +%s)
+        tags: ghcr.io/${{ github.repository_owner | lower }}/syncserver:latest
