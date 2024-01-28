@@ -7,6 +7,8 @@
 
   import Handsfree from "handsfree";
 
+  let lastClick = new Date();
+
   onMount(() => {
     const handsfree = new Handsfree({
         hands: {
@@ -411,11 +413,15 @@
           if (!data.hands.gesture) return;
           if (!data.hands.gesture[0]) return;
           if (data.hands.gesture[0].name !== "grab-left") return;
-          console.log('grab-left', data.hands)
           if (!data.hands.pointer) return;
           if (!data.hands.pointer[0]) return;
           if (!data.hands.pointer[0].isVisible) return;
-          console.log('after')
+
+          if (new Date().getTime() - lastClick.getTime() < 500) {
+              return;
+          }
+
+          lastClick = new Date();
 
           if (data.hands.gesture[0].confidence < 7.5) {
             return;
@@ -448,11 +454,15 @@
           if (!data.hands.gesture) return;
           if (!data.hands.gesture[1]) return;
           if (data.hands.gesture[1].name !== "grab-right") return;
-          console.log('grab-right', data.hands)
           if (!data.hands.pointer) return;
           if (!data.hands.pointer[1]) return;
           if (!data.hands.pointer[1].isVisible) return;
-          console.log('after')
+
+          if (new Date().getTime() - lastClick.getTime() < 500) {
+              return;
+          }
+
+          lastClick = new Date();
 
           if (data.hands.gesture[1].confidence < 7.5) {
             return;
