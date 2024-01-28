@@ -106,7 +106,7 @@
 	<link href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.45.0/mapbox-gl.css" rel='stylesheet' />
     <script src="https://api.mapbox.com/mapbox-assembly/v0.23.2/assembly.js"></script>
 </svelte:head>
-<div class="w-screen">
+<div class="w-screen bg-aa-white h-full">
 	<div class="flex flex-row gap-8 p-8">
 		<div class="cols-span-3 bg-aa-grey w-2/3 rounded-xl">
 			<div id="map"></div>
@@ -156,6 +156,6 @@
 <style>
 	#map {
 		height: 100%;
-		border-radius: 50px;
+		border-radius: 12px;
 	}
 </style>
