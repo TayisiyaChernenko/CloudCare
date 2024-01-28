@@ -1,5 +1,6 @@
 <script>
     import Card from '../components/Card.svelte';
+    import MediaModal from "./MediaModal.svelte";
 
     export let cards;
 
@@ -74,14 +75,34 @@
         }
     }
 
+    let modalVisible = false;
+    let modalTitle;
+    let modalDescription;
+    let modalURL;
+
+    $: {
+        console.log(modalVisible);
+    }
+
+    const modalSet = (title, description, url) => {
+        modalTitle = title;
+        modalDescription = description;
+        modalURL = url;
+        modalVisible = false;
+        modalVisible = true;
+    }
+
 </script>
 
 <div class="card-carousel">
     <div class="scroll left" on:click={prevPage}></div>
+    <MediaModal title={modalTitle} description={modalDescription} url={modalURL} visible={modalVisible} />
     <div class="content" on:mousedown={startDrag} on:mouseup={stopDrag} on:mousemove={handleDrag} on:touchstart={startDrag} on:touchend={stopDrag} on:touchmove={handleDrag} on:mouseleave={stopDrag}>
         <div class="row" style="--shift-left: {horizontalScroll}px; --transition-duration: {transitionDuration}">
             {#each cards.filter((_, index) => { return index % 2 === 0 }) as card}
-                <Card src={card.src} />
+                <div on:click={() => {modalSet(card.title, card.description, card.src)}}>
+                    <Card src={card.src} />
+                </div>
             {/each}
         </div>
         <div class="page">
@@ -95,7 +116,9 @@
         </div>
         <div class="row" style="--shift-left: {horizontalScroll}px; --transition-duration: {transitionDuration}">
             {#each cards.filter((_, index) => { return index % 2 === 1 }) as card}
-                <Card src={card.src} />
+                <div on:click={() => {modalSet(card.title, card.description, card.src)}}>
+                    <Card src={card.src} />
+                </div>
             {/each}
         </div>
     </div>

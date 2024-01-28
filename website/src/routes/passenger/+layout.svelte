@@ -45,8 +45,6 @@
           let hand = data.hands
           let pointer = hand.pointer[0];
 
-          console.log(hand);
-
           const eventMap = {
               start: 'mousedown',
               held: 'mousemove',
@@ -103,8 +101,6 @@
 
           let hand = data.hands
           let pointer = hand.pointer[1];
-
-          console.log(hand);
 
           const eventMap = {
               start: 'mousedown',
