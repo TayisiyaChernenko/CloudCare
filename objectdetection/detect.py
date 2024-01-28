@@ -5,6 +5,8 @@ from dotenv import load_dotenv
 from cv2 import  VideoCapture, imshow, imwrite, imencode
 import numpy as np
 
+SOCKET_IP = 'http://localhost:3000'
+
 # only called when flight program finishes
 # wait some amt of time(for demo)
 # seat value determined outside of this program.
@@ -72,4 +74,6 @@ def detect_items():
 
 if __name__ == '__main__':
     run_detection()
+    sio.connect(SOCKET_IP)
+    sio.wait()
 
