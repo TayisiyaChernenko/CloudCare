@@ -77,7 +77,7 @@
 
 <div class="card-carousel">
     <div class="scroll left" on:click={prevPage}></div>
-    <div class="content" on:mousedown={startDrag} on:mouseup={stopDrag} on:mousemove={handleDrag}>
+    <div class="content" on:mousedown={startDrag} on:mouseup={stopDrag} on:mousemove={handleDrag} on:touchstart={startDrag} on:touchend={stopDrag} on:touchmove={handleDrag} on:mouseleave={stopDrag}>
         <div class="row" style="--shift-left: {horizontalScroll}px; --transition-duration: {transitionDuration}">
             {#each cards.filter((_, index) => { return index % 2 === 0 }) as card}
                 <Card src={card.src} />
