@@ -23,6 +23,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"handsfree": "^8.5.1",
 		"socket.io-client": "^4.7.4"
 	}
 }
