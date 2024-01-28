@@ -3,103 +3,58 @@
     import NavBar from "../../../components/NavBar.svelte";
 
     let cards = [
-        {
-            title: 'Ted',
-            description: 'This is a test',
+       {
+            title: 'Blinding Lights',
+            description: 'The Weeknd',
             status: false,
-            src: "https://m.media-amazon.com/images/I/41DsVUWsCLL._AC_UF894,1000_QL80_.jpg"
+            src: "https://images.genius.com/abb1ae358cc3cdda3195a8228143446a.770x770x1.jpg"
         },
         {
-            title: 'Over the Hedge',
-            description: '',
+            title: 'Three Little Birds',
+            description: 'Bob Marley & The Wailers',
             status: false,
-            src: "https://m.media-amazon.com/images/I/516V1BUK6xL._AC_UF894,1000_QL80_.jpg"
+            src: "https://4.bp.blogspot.com/-wepH8lvYPTk/UI1qHS-Y-lI/AAAAAAAACWU/211f3uTKZwQ/s400/three+little+birds+bob+marley+0.png"
         },
         {
-            title: '',
-            description: '',
+            title: 'Bad Medicine',
+            description: 'Bon Jovi',
             status: false,
-            src: "https://i5.walmartimages.com/seo/Top-Gun-Maverick-Movie-Poster-Quality-Glossy-Print-Photo-Wall-Art-Tom-Cruise-Jennifer-Connelly-Size-24x36_bbb92289-b359-423e-a8fe-6142b188f677.4da7e4af2871002298f4804afb44b955.jpeg" },
+            src: "https://1.bp.blogspot.com/-Kh0LbRthJ3c/Tey54XMSrdI/AAAAAAAAAfw/AgkOA9A6SPM/s1600/bad+medicine+us+promo.JPG" },
         {
-            title: '',
-            description: '',
+            title: 'Teenage Dream',
+            description: 'Katy Perry',
             status: false,
-            src: "https://m.media-amazon.com/images/I/71Tpd21hEbL._AC_UF894,1000_QL80_.jpg" },
+            src: "https://i.pinimg.com/originals/21/44/d1/2144d1dc8463a652bcfc661249ab8866.jpg" },
         {
-            title: '',
-            description: '',
+            title: 'Titanium',
+            description: 'David Guetta',
             status: false,
-            src: "https://m.media-amazon.com/images/I/91zqGNzwk5L._AC_UF894,1000_QL80_.jpg" },
+            src: "https://1.bp.blogspot.com/-xX7kOYLsKbM/TkAY0lEw0MI/AAAAAAAAATQ/4IaMEcZUdNw/s1600/00-david_guetta_and_sia_-_titanium-web-2011-cover-zzzz.jpg" },
         {
-            title: '',
-            description: '',
+            title: 'Sunny',
+            description: 'Bobby Hebb',
             status: false,
-            src: "https://m.media-amazon.com/images/I/71BgdzmFDAL._AC_UF894,1000_QL80_.jpg" },
+            src: "https://i.discogs.com/wC7IRBerLbdYdtM6csMfHXF_wt3T4O0b9aSabwosZX4/rs:fit/g:sm/q:90/h:568/w:585/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTU3Nzg2/ODItMTQwMjQxMTE3/OC01Mjk4LmpwZWc.jpeg" },
         {
-            title: '',
-            description: '',
+            title: 'Miss Jackson',
+            description: 'Panic at the Disco',
             status: false,
-            src: "https://i.pinimg.com/originals/66/bd/9b/66bd9b1f8354a9aa6900dee35bc2a911.jpg" },
+            src: "https://i.pinimg.com/originals/c5/00/53/c50053d754e28c22e21f5e51e4ef14a1.jpg" },
         {
-            title: '',
-            description: '',
+            title: 'The Nights',
+            description: 'Avicci',
             status: false,
-            src: "https://i.etsystatic.com/41716657/r/il/9c990a/4742863548/il_570xN.4742863548_patj.jpg" },
+            src: "https://mir-s3-cdn-cf.behance.net/project_modules/hd/73ab9c74461913.5c30aab0bfca5.jpg" },
         {
-            title: '',
-            description: '',
+            title: 'Free Bird',
+            description: 'Lynyrd Skynyrd',
             status: false,
-            src: "https://m.media-amazon.com/images/I/51b6mLCvBuL._AC_UF894,1000_QL80_.jpg" },
+            src: "https://i.discogs.com/GcW9S74Gvwa9nSvX2q2K54iHxMwLSHb6vuqR10wdaQA/rs:fit/g:sm/q:90/h:600/w:594/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI2MTI2/MzItMTI5MzI4NTU4/My5qcGVn.jpeg" },
         {
-            title: '',
-            description: '',
+            title: 'Let it Go',
+            description: 'Idina Menzel',
             status: false,
-            src: "https://m.media-amazon.com/images/M/MV5BMDJhMGRjN2QtNDUxYy00NGM3LThjNGQtMmZiZTRhNjM4YzUxL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_.jpg" },
-        {
-            title: '',
-            description: '',
-            status: false,
-            src: "https://m.media-amazon.com/images/I/91K98RNBBWL.jpg" },
-        {
-            title: '',
-            description: '',
-            status: false,
-            src: "https://m.media-amazon.com/images/I/61f1bYNLpKL._AC_UF1000,1000_QL80_.jpg" },
-        {
-            title: '',
-            description: '',
-            status: false,
-            src: "https://m.media-amazon.com/images/I/71U8fIXlGHL._AC_UF894,1000_QL80_.jpg" },
-        {
-            title: '',
-            description: '',
-            status: false,
-            src: "https://m.media-amazon.com/images/I/A1M0qlxNo6L.jpg" },
-        {
-            title: '',
-            description: '',
-            status: false,
-            src: "https://m.media-amazon.com/images/I/81ZCRFRoXYL._AC_UF894,1000_QL80_.jpg" },
-        {
-            title: '',
-            description: '',
-            status: false,
-            src: "https://m.media-amazon.com/images/I/81oON83v4WL._AC_UF894,1000_QL80_.jpg" },
-        {
-            title: '',
-            description: '',
-            status: false,
-            src: "https://pbncanvas.com/wp-content/uploads/2022/02/Knives-Out-movie-poster-paint-by-numbers.jpg" },
-        {
-            title: '',
-            description: '',
-            status: false,
-            src: "https://m.media-amazon.com/images/I/61c11xwXFjL._AC_UF894,1000_QL80_.jpg" },
-        {
-            title: '',
-            description: '',
-            status: false,
-            src: "https://i.ebayimg.com/images/g/qHwAAOSw1Y5dcuMC/s-l1600.jpg" },
+            src: "https://www.crownnote.com/sites/default/files/11660886813_344f3a7bd4_o.png" },
     ]
 </script>
 

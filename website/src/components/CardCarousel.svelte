@@ -134,6 +134,10 @@
         align-items: center;
     }
 
+    .right {
+        rotate: 180deg;
+    }
+
     .scroll {
         min-height: 64px;
         max-height: 64px;
@@ -142,6 +146,8 @@
         border-radius: 100%;
         border: 5px solid black;
         margin: calc((10vw - 64px)/2);
+        background-image: url("https://www.iconpacks.net/icons/1/free-icon-arrow-233.png");
+        background-size: cover;
 
         background-color: transparent;
     }

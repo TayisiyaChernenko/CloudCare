@@ -12,8 +12,8 @@
         hands: {
             enabled: true,
             maxNumHands: 2,
-            minDetectionConfidence: 0.5,
-            minTrackingConfidence: 0.5,
+            minDetectionConfidence: 0.75,
+            minTrackingConfidence: 0.75,
         },
         plugin: {
             palmPointers: {
