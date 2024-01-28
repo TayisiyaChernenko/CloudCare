@@ -2,6 +2,7 @@
   import "../../app.css";
   import NavBar from "../../components/NavBar.svelte";
   import ProgressBar from "../../components/ProgressBar.svelte";
+  import ChatModal from "../../components/ChatModal.svelte";
 
   import { onMount } from "svelte";
 
@@ -489,14 +490,23 @@
           }
       })
   })
+
+  let showModal = false;
+
+    function toggleModal() {
+        showModal = !showModal;
+    }
 </script>
 
 <div class="flex flex-col background h-screen">
-    <NavBar />
+    <NavBar on:open-assistant={toggleModal} />
     <div class="flex flex-grow align-center items-center">
         <slot />
     </div>
     <ProgressBar />
+    {#if showModal}
+        <ChatModal on:close={toggleModal} />
+    {/if}
 </div>
 
 
