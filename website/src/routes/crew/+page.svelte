@@ -27,9 +27,9 @@
 
 	onMount(() => {
 
-        setAlert("f16", "phone");
-        setAlert("f22", "laptop");
-        setAlert("a12", "teddy bear");
+        // setAlert("f16", "phone");
+        // setAlert("f22", "laptop");
+        // setAlert("a12", "teddy bear");
 
 		window.onclick = e => {
             if (/\b[a-f]\d{2}\b/.test(e.target.id)) {
@@ -53,7 +53,7 @@
         }
 
         // Replace 'http://localhost:3000' with your server's URL
-        socket = io('http://localhost:3000');
+        socket = io('https://tamu-websocket-srespzduha-uc.a.run.app', {transports: ["websocket", "polling", "flashsocket"]});
 
         // Event handler for when the socket connection is established
         socket.on('connect', () => {
@@ -65,10 +65,12 @@
             console.log('Received message from server:', data);
             const seatId = data.substring(0, data.indexOf(' ')); // "72"
             const item = data.substring(data.indexOf(' ') + 1); // "tocirah sneab"
-            if (/\b[a-f]\d{2}\b/.test(seatId)) {
+            if (/\b[a-f]\d{2}\b/.test(seatId) && item != "no") {
                 setAlert(seatId, item);
             }
         });
+
+        socket.emit('syncData', 'READY');
 
         // You can add more event handlers as needed
 
@@ -78,13 +80,12 @@
             console.log('Disconnected from server');
         };
         
-
+        
         
 	});
 
     function sendMessage(message) {
         // Replace 'message' with your desired event name
-        socket.emit('syncData', "a21 teddy bear");
         console.log('Sent message to server:', message);
     }
     
