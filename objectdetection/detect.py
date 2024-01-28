@@ -25,7 +25,8 @@ def connect_error(data):
 
 @sio.event
 def syncData(data):
-    sio.emit('my message', {'response': data})
+    if "Ready" in data:
+        run_detection()
 
 @sio.event
 def disconnect():
@@ -56,10 +57,10 @@ def run_detection():
     if firstWord == "Yes":
         # websocket the item back (result)
         resp = 'A05 ' + rest
-        sio.syncData(resp)
+        sio.emit('my message', {'response': resp})
     else:
         resp = 'A05' + ' No'
-        sio.syncData(resp)
+        sio.emit('my message', {'response': resp})
         
 
 
@@ -98,7 +99,3 @@ def detect_items():
 if __name__ == '__main__':
     sio.connect(SOCKET_IP)
     sio.wait()
-    run_detection()
-    sio.disconnect()
-    
-
