@@ -9,9 +9,9 @@
     const { value } = event.target;
     if (value.length === 1) {
         // If a letter is entered, move focus to the next input
-        currentInputIndex = (currentInputIndex + 1) % inputs.length;
+        currentInputIndex = (currentInputIndex + 1);
         const nextInput = document.getElementById(inputs[currentInputIndex]);
-        if (currentInputIndex == 5) {
+        if (currentInputIndex == 6) {
             console.log("nice ")
             goto(`/passenger/movies`);
         }
