@@ -7,9 +7,19 @@ export default {
       'aa-blue': '#14ACDC',
       'aa-red': '#B61F23',
       'aa-grey': '#C7D0D7',
-      'aa-white': '#FFFFFF'
+      'aa-white': '#FFFFFF',
+      'aa-yellow': '#FFB800',
+      'aa-green': '#30BA5F'
     },
-    extend: {},
+    extend: {
+      gridTemplateColumns: {
+        '26': 'repeat(26, minmax(0, 1fr))',
+      },
+      gridColumn: {
+        'span-26': 'span 26 / span 26',
+      }
+      
+    },
   },
   plugins: [],
 }
