@@ -113,7 +113,7 @@
 			<div id="map"></div>
 		</div>
 		<div class="flex flex-col gap-8 w-1/3">
-			<div id="weather" class="bg-aa-grey text-aa-white rounded-xl h-64 w-full p-6">
+			<div id="weather" class="bg-aa-blue text-aa-white rounded-xl h-64 w-full p-6">
 				<p>Destination</p>
 				<h1 class="text-4xl"><b>{queryCity + " " + queryState}</b></h1>
 				<div class="grid grid-cols-2 h-full w-full">
@@ -128,7 +128,7 @@
 					</div>
 				</div>
 			</div>
-			<div id="connections" class="bg-aa-grey rounded-xl h-64 p-6 text-aa-white">
+			<div id="connections" class="bg-aa-blue rounded-xl h-64 p-6 text-aa-white">
 				<div class="grid grid-cols-2">
 					<div class="text-left">
 						<p>Transfer Time</p>

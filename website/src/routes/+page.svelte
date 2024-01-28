@@ -27,18 +27,18 @@
 </script>
 
 <div class="h-screen w-screen flex justify-center items-center">
-    <div class="w-[500px] h-[340px] bg-aa-grey flex items-center flex-col p-4 rounded-xl">
+    <div class="w-[800px] h-[510px] bg-aa-grey flex items-center flex-col py-8 px-4 rounded-xl">
         <img src={logo} class="h-20 w-20 p-2 mx-5">
-        <div class="my-5 text-center">Welcome on your American Airlines flight! This flight contains experimental features such as visual sensing to improve your flight experience. If you wish to participate, enter your record locator.</div>
-        <div>
-            <input class="w-6 mx-1 rounded-sm text-center" id="input1" placeholder="X" type="text" on:input={handleInput} />
-            <input class="w-6 mx-1 rounded-sm text-center" id="input2" placeholder="4" type="text" on:input={handleInput} />
-            <input class="w-6 mx-1 rounded-sm text-center" id="input3" placeholder="Y" type="text" on:input={handleInput} />
-            <input class="w-6 mx-1 rounded-sm text-center" id="input4" placeholder="Z" type="text" on:input={handleInput} />
-            <input class="w-6 mx-1 rounded-sm text-center" id="input5" placeholder="Q" type="text" on:input={handleInput} />
-            <input class="w-6 mx-1 rounded-sm text-center" id="input6" placeholder="7" type="text" on:input={handleInput} />
+        <div class="my-5 mx-8 text-3xl text-center">Welcome aboard your American Airlines flight! <br>This flight contains advanced features to improve your in-flight experience. For a more personalized experience, enter your record locator.</div>
+        <div class="text-2xl" >
+            <input class="w-12 h-16 mx-1 rounded-md text-center" style="text-transform: uppercase" id="input1" placeholder="X" type="text" on:input={handleInput} />
+            <input class="w-12 h-16 mx-1 rounded-md text-center" style="text-transform: uppercase" id="input2" placeholder="4" type="text" on:input={handleInput} />
+            <input class="w-12 h-16 mx-1 rounded-md text-center" style="text-transform: uppercase" id="input3" placeholder="Y" type="text" on:input={handleInput} />
+            <input class="w-12 h-16 mx-1 rounded-md text-center" style="text-transform: uppercase" id="input4" placeholder="Z" type="text" on:input={handleInput} />
+            <input class="w-12 h-16 mx-1 rounded-md text-center" style="text-transform: uppercase" id="input5" placeholder="Q" type="text" on:input={handleInput} />
+            <input class="w-12 h-16 mx-1 rounded-md text-center" style="text-transform: uppercase" id="input6" placeholder="7" type="text" on:input={handleInput} />
         </div>
-        <button class="bg-aa-blue py-1 px-3 my-4 rounded-xl">Opt Out</button>
+        <button class="bg-aa-blue py-2 px-4 my-6 rounded-xl text-2xl text-aa-white font-bold">OPT OUT</button>
     </div>
     
 </div>
