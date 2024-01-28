@@ -11,7 +11,9 @@
 
     const setAlert = (seatId, item) => {
         alertedSeats.push({ id: seatId, item: item});
-        document.getElementById(seatId).setAttribute("class", "bg-aa-yellow w-8 h-8");
+        let seat = document.getElementById(seatId);
+        seat.setAttribute("class", "bg-aa-yellow w-8 h-8");
+        seat.item = item;
     }
 
     const clearAlert = () => {
@@ -25,9 +27,9 @@
 
 	onMount(() => {
 
-        setAlert("f16");
-        setAlert("f22");
-        setAlert("a12");
+        setAlert("f16", "phone");
+        setAlert("f22", "laptop");
+        setAlert("a12", "teddy bear");
 
 		window.onclick = e => {
             if (/\b[a-f]\d{2}\b/.test(e.target.id)) {
@@ -61,6 +63,11 @@
         // Event handler for receiving messages from the server
         socket.on('syncData', (data) => {
             console.log('Received message from server:', data);
+            const seatId = data.substring(0, data.indexOf(' ')); // "72"
+            const item = data.substring(data.indexOf(' ') + 1); // "tocirah sneab"
+            if (/\b[a-f]\d{2}\b/.test(seatId)) {
+                setAlert(seatId, item);
+            }
         });
 
         // You can add more event handlers as needed
@@ -77,7 +84,7 @@
 
     function sendMessage(message) {
         // Replace 'message' with your desired event name
-        socket.emit('syncData', message);
+        socket.emit('syncData', "a21 teddy bear");
         console.log('Sent message to server:', message);
     }
     
@@ -275,7 +282,7 @@
             {#if visible}
             <div bind:this={messageBox} class="flex w-72 flex-col py-10 pl-12">
                 <h1><b>Seat {currentSeat.id.toUpperCase()}</b></h1>
-                <p>Tayisiya Chernenko left a phone on the plane OHHHH MAAAAA GAWWDDD</p>
+                <p>Tayisiya Chernenko left a {currentSeat.item} on the seat!</p>
                 <button class="bg-aa-grey px-2 py-1 rounded-lg w-24" on:click={clearAlert}>
                     Dismiss
                 </button>
