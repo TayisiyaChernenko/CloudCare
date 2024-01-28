@@ -46,6 +46,9 @@
 			<div id="weather" class="bg-aa-grey text-aa-white rounded-xl h-64 p-6">
 				<p>Destination</p>
 				<h1 class="text-4xl"><b>{queryCity + " " + queryState}</b></h1>
+				<p>{weather?.main.temp +"°F"}</p>
+				<p>{"Conditions: " + weather?.weather[0].main}</p>
+				<p>{"Wind " + weather?.wind.speed + " mph"}</p>
 			</div>
 			<div id="connections" class="bg-aa-grey rounded-xl h-64 p-6 text-aa-white">
 				<div class="grid grid-cols-2">

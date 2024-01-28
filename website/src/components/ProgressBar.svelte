@@ -1,6 +1,6 @@
 <script>
     export let takeoffTime = new Date('2024-01-28T01:47');
-    export let arrivalTime = new Date('2024-01-28T03:29');
+    export let arrivalTime = new Date('2024-01-28T21:29');
 
     let hourArrival = String(arrivalTime.getHours()).padStart(2, '0');
     let minuteArrival = String(arrivalTime.getMinutes()).padStart(2, '0');
