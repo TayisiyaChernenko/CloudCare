@@ -2,6 +2,8 @@ import base64
 from openai import OpenAI
 import os
 from dotenv import load_dotenv
+from cv2 import  VideoCapture, imshow, imwrite, imencode
+import numpy as np
 
 # only called when flight program finishes
 # wait some amt of time(for demo)
@@ -10,6 +12,15 @@ from dotenv import load_dotenv
 
 def run_detection():
     # take photo
+    cam_port = 0
+    cam = VideoCapture(cam_port)
+    result, image = cam.read()
+    if result:
+        imshow("Chair", image)
+        imwrite("Chair.jpg", image)
+    else:
+        print("No image detected. Please! try again")
+
 
     res = detect_items()
     print(res)
@@ -24,23 +35,13 @@ def run_detection():
         
 
 
-
-# delete when pi connected properly 
-def encode_image(image_path):
-    with open(image_path, "rb") as image_file:
-        return base64.b64encode(image_file.read()).decode('utf-8')
-
-
 def detect_items():
     load_dotenv()
     key = os.environ['OPENAI_API_KEY']
     client = OpenAI(api_key=key)
-    image_path = "empty_chair.jpg"
-    
-    # Getting the base64 string, delete when convcert to pi
-    base64_image = encode_image(image_path)
+    with open("Chair.jpg", "rb") as image_file:
+        im_b64 = base64.b64encode(image_file.read()).decode('utf-8')
     response = client.chat.completions.create(
-
         model="gpt-4-vision-preview",
         messages=[
             {
@@ -51,7 +52,7 @@ def detect_items():
                     {
                         "type": "image_url",
                         "image_url": {
-                            "url": f"data:image/jpeg;base64,{base64_image}",
+                            "url": f"data:image/jpg;base64,{im_b64}",
                             "detail": "low"
                         },
                     },
