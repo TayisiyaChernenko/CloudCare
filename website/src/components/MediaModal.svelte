@@ -14,7 +14,10 @@
                 <img src={url} class="card hover:drop-shadow-xl" draggable="false"/>
             </div>
             <div class="flex flex-col px-10">
-                <h1 class="text-aa-white text-5xl font-bold">{title}</h1>
+                <div class="flex flex row">
+                    <div class="flex justify-center items-center text-4xl bg-aa-white h-12 rounded-xl mr-5 w-32 font-bold">Play</div>
+                    <h1 class="text-aa-white text-5xl font-bold overflow-hidden">{title}</h1>
+                </div>
                 <p class="text-aa-white text-lg py-4">{description}</p>
             </div>
         </div>
