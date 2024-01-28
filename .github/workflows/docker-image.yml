@@ -29,4 +29,4 @@ jobs:
         context: syncserver
         file: syncserver/Dockerfile
         push: true
-        tags: ghcr.io/${{ github.repository_owner | lower }}/syncserver:latest
+        tags: ghcr.io/spaceface16518/syncserver:latest
