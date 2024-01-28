@@ -4,14 +4,14 @@
 
     let cards = [ 
         {
-            title: 'Breaking Bad",
+            title: 'Breaking Bad',
             description: 'A high school chemistry teacher turned methamphetamine manufacturer navigates the criminal underworld.',
             status: false,
             src: "https://flxt.tmsimg.com/assets/p185846_b_v8_ad.jpg"
         },
         {
             title: 'The Office',
-            description: 'A mockumentary-style sitcom that follows the daily lives of office employees working at Dunder Mifflin's Scranton, Pennsylvania branch.',
+            description: 'A mockumentary-style sitcom that follows the daily lives of office employees working at Dunder Mifflin\'s Scranton, Pennsylvania branch.',
             status: false,
             src: "https://mypostercollection.com/wp-content/uploads/2019/06/the-office-poster-1.jpg"
         },
@@ -38,7 +38,7 @@
             src: "https://image.tmdb.org/t/p/original/xoRYlOQMCooz3jcwdtt348qB9oj.jpg" },
         {
             title: 'Pride and Prejudice',
-            description: 'A classic adaptation of Jane Austen's novel, this mini-series follows the tumultuous relationship between Elizabeth Bennet and Mr. Darcy in 19th century England.',
+            description: 'A classic adaptation of Jane Austen\'s novel, this mini-series follows the tumultuous relationship between Elizabeth Bennet and Mr. Darcy in 19th century England.',
             status: false,
             src: "https://alchetron.com/cdn/pride-and-prejudice-1995-tv-series-e31becc4-272f-4ac0-a55e-6b396c90983-resize-750.jpeg" },
         {
