@@ -20,6 +20,6 @@
         <a href="/passenger/flight-info" class="flex justify-center items-center h-14 w-36 text-xl bg-aa-dark-blue rounded-2xl text-aa-grey font-bold">My Flight</a>
     </div>
     <div class="flex absolute right-0 justify-center items-center h-20 w-40 p-2 mx-5 text-aa-white font-bold text-xl">
-        {String(currentTime.getHours()).padStart(2, '0')}:{String(currentTime.getMinutes()).padStart(2, '0')}:{String(currentTime.getSeconds()).padStart(2, '0')}
+        Time: {String(currentTime.getHours()).padStart(2, '0')}:{String(currentTime.getMinutes()).padStart(2, '0')}:{String(currentTime.getSeconds()).padStart(2, '0')}
     </div>
 </div>
