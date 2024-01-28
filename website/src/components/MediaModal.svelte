@@ -53,6 +53,9 @@
         margin: 12px;
         background-color: white;
         border-radius: 100%;
+        background-image: url("https://www.iconpacks.net/icons/1/free-icon-arrow-233.png");
+        background-size: cover;
+        border: 5px solid white;
     }
 
     .card {
