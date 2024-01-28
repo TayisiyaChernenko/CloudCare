@@ -15,9 +15,12 @@ def run_detection():
     cam_port = 0
     cam = VideoCapture(cam_port)
     result, image = cam.read()
+    a = np.double(image)
+    b = a + 15
+    img = np.uint8(b)
     if result:
-        imshow("Chair", image)
-        imwrite("Chair.jpg", image)
+        imshow("Chair", img)
+        imwrite("Chair.jpg", img)
     else:
         print("No image detected. Please! try again")
 
@@ -48,7 +51,10 @@ def detect_items():
                 "role": "user",
                 "content": [
                     {"type": "text",
-                     "text": "Assume you are checking if someone left an item on an airplane seat. Yes or No, is there any physical object in the chair in the center of the photo? Exclude shadows. If yes, what object is in the chair?"},
+                     "text":"Assume you are checking if someone left an item on an airplane seat. Yes or No, "
+                             "is there any physical object in the chair in the center of the photo? "
+                             "Exclude shadows. If yes, what object is in the chair? "
+                             "Just give the name of the object without a full sentence."},
                     {
                         "type": "image_url",
                         "image_url": {
