@@ -3,6 +3,71 @@
     import Map from "../../../components/Map.svelte";
 	import NavBar from "../../../components/NavBar.svelte";
 
+    import mapboxgl from "mapbox-gl";
+	mapboxgl.accessToken = 'pk.eyJ1IjoiY2hhcmxpZW1haGFuYSIsImEiOiJja3FicmNhOWQwZDQwMnVvZW5pd3BnNGc4In0._TBwk5GaE5qqih2pilaLNw'
+
+	const departingAirportCoords = [-122.3086, 47.4484]
+	const arrivingAirportCoords = [-97.0338, 32.8984]
+
+	onMount(() => {
+		const map = new mapboxgl.Map({
+			container: "map",
+			style: "mapbox://styles/mapbox/streets-v12",
+			center: [-110, 40],
+			zoom: 3.5,
+			attributionControl: false,
+		}).addControl(new mapboxgl.AttributionControl({
+			compact: true,
+		}))
+
+		map.on('load', async () => {
+			map.addSource('line', {
+				'type': 'geojson',
+				'data': {
+					'type': 'FeatureCollection',
+					'features': [
+						{
+							'type': 'Feature',
+							'geometry': {
+								'type': 'LineString',
+								'coordinates': [
+									[departingAirportCoords[0], departingAirportCoords[1]],
+									[arrivingAirportCoords[0], arrivingAirportCoords[1]]
+								]
+							}
+						}
+					]
+				}
+			});
+
+			map.addLayer({
+                'id': 'line-animation',
+                'type': 'line',
+                'source': 'line',
+                'layout': {
+                'line-cap': 'round',
+                'line-join': 'round'
+                },
+                'paint': {
+                'line-color': '#000000',
+                'line-width': 2,
+                'line-opacity': 0.8
+                }
+            });
+
+            // create departing airport pin
+            const departure = document.createElement('div');
+            departure.className = 'marker';
+            new mapboxgl.Marker(departure).setLngLat([departingAirportCoords[0], departingAirportCoords[1]]).addTo(map);
+
+            // create arrival airport pin
+            const arrival = document.createElement('div');
+            arrival.className = 'marker';
+            new mapboxgl.Marker(arrival).setLngLat([arrivingAirportCoords[0], arrivingAirportCoords[1]]).addTo(map);
+
+		})
+	})
+
 	let queryCity = "Dallas";
 	let queryState = "TX";
 	let queryCountry = "US";
@@ -37,10 +102,14 @@
 	})
 </script>
 
+<svelte:head>
+	<link href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.45.0/mapbox-gl.css" rel='stylesheet' />
+    <script src="https://api.mapbox.com/mapbox-assembly/v0.23.2/assembly.js"></script>
+</svelte:head>
 <div class="w-screen">
 	<div class="flex flex-row gap-8 p-8">
-		<div id="map" class="cols-span-3 bg-aa-grey w-2/3 rounded-xl">
-			<Map />
+		<div class="cols-span-3 bg-aa-grey w-2/3 rounded-xl">
+			<div id="map"></div>
 		</div>
 		<div class="flex flex-col gap-8 w-1/3">
 			<div id="weather" class="bg-aa-grey text-aa-white rounded-xl h-64 p-6">
@@ -70,6 +139,23 @@
 		</div>
 		
 	</div>
-	
+	<style>
+        .marker {
+        background-image: url('https://www.iconpacks.net/icons/2/free-airport-location-icon-2959-thumb.png');
+        background-size: cover;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        cursor: pointer;
+        top: -20px;
+        }
+    </style>
 
 </div>
+
+<style>
+	#map {
+		height: 100%;
+		border-radius: 50px;
+	}
+</style>

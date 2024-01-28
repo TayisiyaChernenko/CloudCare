@@ -24,6 +24,8 @@
 	"type": "module",
 	"dependencies": {
 		"handsfree": "^8.5.1",
-		"socket.io-client": "^4.7.4"
+		"mapbox-gl": "^3.1.2",
+		"socket.io-client": "^4.7.4",
+		"turf": "^3.0.14"
 	}
 }
