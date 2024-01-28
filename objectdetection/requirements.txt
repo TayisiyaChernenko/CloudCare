@@ -1,0 +1,7 @@
+python-dotenv
+opencv-python
+openai
+python-socketio
+requests
+numpy
+websocket-client
