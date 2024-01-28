@@ -1,18 +1,40 @@
 import base64
+import socketio
+
 from openai import OpenAI
 import os
 from dotenv import load_dotenv
-from cv2 import  VideoCapture, imshow, imwrite, imencode
+from cv2 import VideoCapture, imshow, imwrite
 import numpy as np
 
-SOCKET_IP = 'http://localhost:3000'
 
 # only called when flight program finishes
 # wait some amt of time(for demo)
 # seat value determined outside of this program.
 
+sio = socketio.Client()
+SOCKET_IP = 'http://localhost:3000'
+
+@sio.event
+def connect():
+    print("I'm connected!")
+
+@sio.event
+def connect_error(data):
+    print("The connection failed!")
+
+@sio.event
+def syncData(data):
+    sio.emit('my message', {'response': data})
+
+@sio.event
+def disconnect():
+    print("I'm disconnected!")
+
+
 
 def run_detection():
+
     # take photo
     cam_port = 0
     cam = VideoCapture(cam_port)
@@ -33,10 +55,11 @@ def run_detection():
     (firstWord, rest) = res.split(maxsplit=1)
     if firstWord == "Yes":
         # websocket the item back (result)
-        pass
+        resp = 'A05 ' + rest
+        sio.syncData(resp)
     else:
-        # websocket back no
-        pass
+        resp = 'A05' + ' No'
+        sio.syncData(resp)
         
 
 
@@ -53,10 +76,10 @@ def detect_items():
                 "role": "user",
                 "content": [
                     {"type": "text",
-                     "text":"Assume you are checking if someone left an item on an airplane seat. Yes or No, "
-                             "is there any physical object in the chair in the center of the photo? "
-                             "Exclude shadows. If yes, what object is in the chair? "
-                             "Just give the name of the object without a full sentence."},
+                     "text": "Assume you are checking if someone left an item on an airplane seat. Yes or No, "
+                             "is there any physical object in the chair in the center of the photo? Exclude shadows. "
+                             "If yes, what object is in the chair? Just give the name of the object without a full "
+                             "sentence or period at the end."},
                     {
                         "type": "image_url",
                         "image_url": {
@@ -73,7 +96,9 @@ def detect_items():
 
 
 if __name__ == '__main__':
-    run_detection()
     sio.connect(SOCKET_IP)
     sio.wait()
+    run_detection()
+    sio.disconnect()
+    
 
