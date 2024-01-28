@@ -1,18 +1,17 @@
 <script>
   import "../app.css";
+  import NavBar from "../components/NavBar.svelte";
+  import ProgressBar from "../components/ProgressBar.svelte";
 
   import { onMount } from "svelte";
 
   import Handsfree from "handsfree";
 
-  let xx = 0;
-  let yy = 0;
-
   onMount(() => {
     const handsfree = new Handsfree({
         hands: {
             enabled: true,
-            maxNumHands: 1,
+            maxNumHands: 2,
             minDetectionConfidence: 0.5,
             minTrackingConfidence: 0.5,
         },
@@ -155,8 +154,12 @@
   })
 </script>
 
-<div>
-    <slot />
+<div class="flex flex-col background h-screen">
+    <NavBar />
+    <div class="flex flex-grow align-center items-center">
+        <slot />
+    </div>
+    <ProgressBar />
 </div>
 
 
@@ -178,5 +181,9 @@
 
   :global(.handsfree-debugger) {
     display: none !important;
+  }
+
+  .background {
+      background-color: #4a4a4a;
   }
 </style>

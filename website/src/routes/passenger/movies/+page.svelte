@@ -26,6 +26,5 @@
 </script>
 
 <div class="card-carousel">
-    <NavBar />
     <CardCarousel cards={cards} />
 </div>

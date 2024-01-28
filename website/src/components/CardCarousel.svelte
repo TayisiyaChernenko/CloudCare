@@ -15,7 +15,7 @@
     $: dots = Array(numPages);
 
     const nextPage = () => {
-
+        stopDrag();
         if (horizontalScroll > currentPage * -60 * 16) {
             horizontalScroll = currentPage * -60 * 16;
         } else {
@@ -26,6 +26,7 @@
     }
 
     const prevPage = () => {
+        stopDrag();
         if (horizontalScroll < currentPage * -60 * 16) {
             horizontalScroll = currentPage * -60 * 16;
         } else {
