@@ -1,6 +1,7 @@
 <script>
     import CrewBar from "../../components/CrewBar.svelte";
     import { onDestroy, onMount } from 'svelte';
+    import io from 'socket.io-client';
 
     let currentSeat;
     let messageBox;
@@ -18,6 +19,7 @@
         alertedSeats.splice(index, 1); 
         visible = false;
         currentSeat.setAttribute("class", "bg-aa-grey w-8 h-8")
+        sendMessage("technically speaking")
     }
     
 
@@ -48,39 +50,37 @@
             }
         }
 
+        // Replace 'http://localhost:3000' with your server's URL
+        socket = io('http://localhost:3000');
+
+        // Event handler for when the socket connection is established
+        socket.on('connect', () => {
+            console.log('Connected to server');
+        });
+
+        // Event handler for receiving messages from the server
+        socket.on('syncData', (data) => {
+            console.log('Received message from server:', data);
+        });
+
+        // You can add more event handlers as needed
+
+        // Clean up the socket connection when the component is destroyed
+        return () => {
+            socket.disconnect();
+            console.log('Disconnected from server');
+        };
         
 
-        // UNCOMMENT ME ONCE YOUVE GROWN A PAIR
-
-        // // Connect to the WebSocket server
-        // socket = new WebSocket("ws://your-server-url");
-
-        // // Listen for messages from the server
-        // socket.addEventListener("message", (event) => {
-        //     const message = JSON.parse(event.data);
-        //     console.log("Received message:", message);
-        //     // Handle the received message as needed
-        // });
-
-        // // Handle WebSocket connection errors
-        // socket.addEventListener("error", (event) => {
-        //     console.error("WebSocket error:", event);
-        // });
-
-        // // Handle WebSocket connection closures
-        // socket.addEventListener("close", (event) => {
-        //     console.log("WebSocket connection closed:", event);
-        // });
+        
 	});
 
+    function sendMessage(message) {
+        // Replace 'message' with your desired event name
+        socket.emit('syncData', message);
+        console.log('Sent message to server:', message);
+    }
     
-    
-    // Optional: Add cleanup logic when the component is destroyed
-    // onDestroy(() => {
-    // if (socket && socket.readyState === WebSocket.OPEN) {
-    //     socket.close();
-    // }
-    // });
 </script>
 
 <div class="h-screen">
