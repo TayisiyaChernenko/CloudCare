@@ -2,104 +2,60 @@
     import CardCarousel from "../../../components/CardCarousel.svelte";
     import NavBar from "../../../components/NavBar.svelte";
 
-    let cards = [
+    let cards = [ 
         {
-            title: 'Ted',
-            description: 'This is a test',
+            title: 'Breaking Bad",
+            description: 'A high school chemistry teacher turned methamphetamine manufacturer navigates the criminal underworld.',
             status: false,
-            src: "https://m.media-amazon.com/images/I/41DsVUWsCLL._AC_UF894,1000_QL80_.jpg"
+            src: "https://flxt.tmsimg.com/assets/p185846_b_v8_ad.jpg"
         },
         {
-            title: 'Over the Hedge',
-            description: '',
+            title: 'The Office',
+            description: 'A mockumentary-style sitcom that follows the daily lives of office employees working at Dunder Mifflin's Scranton, Pennsylvania branch.',
             status: false,
-            src: "https://m.media-amazon.com/images/I/516V1BUK6xL._AC_UF894,1000_QL80_.jpg"
+            src: "https://mypostercollection.com/wp-content/uploads/2019/06/the-office-poster-1.jpg"
         },
         {
-            title: '',
-            description: '',
+            title: 'Stranger Things',
+            description: 'Set in the 1980s, this series follows a group of kids who encounter supernatural forces and government conspiracies in their small town.',
             status: false,
-            src: "https://i5.walmartimages.com/seo/Top-Gun-Maverick-Movie-Poster-Quality-Glossy-Print-Photo-Wall-Art-Tom-Cruise-Jennifer-Connelly-Size-24x36_bbb92289-b359-423e-a8fe-6142b188f677.4da7e4af2871002298f4804afb44b955.jpeg" },
+            src: "https://i5.walmartimages.com/asr/4d6f3d48-bc1d-4844-9653-2da626b80ef3_1.7b77e5d59b2f72ff55664f65327dd07a.jpeg"
+             },
         {
-            title: '',
-            description: '',
+            title: 'Mindhunter',
+            description: 'Based on true events, this series follows FBI agents as they interview serial killers to understand their psychology and solve ongoing cases.',
             status: false,
-            src: "https://m.media-amazon.com/images/I/71Tpd21hEbL._AC_UF894,1000_QL80_.jpg" },
+            src: "https://image.tmdb.org/t/p/original/cVRAYMXWBtmkEBGa44GRV1Ms3tV.jpg" },
         {
-            title: '',
-            description: '',
+            title: 'The Mandalorian',
+            description: 'Set in the Star Wars universe, this series follows a lone bounty hunter as he navigates the outer reaches of the galaxy.',
             status: false,
-            src: "https://m.media-amazon.com/images/I/91zqGNzwk5L._AC_UF894,1000_QL80_.jpg" },
+            src: "https://salidaetc.com/wp-content/uploads/2020/01/The-Mandalorian.jpg" },
         {
-            title: '',
-            description: '',
+            title: 'The Crown',
+            description: 'This biographical drama chronicles the reign of Queen Elizabeth II, from her wedding in 1947 to the present day.',
             status: false,
-            src: "https://m.media-amazon.com/images/I/71BgdzmFDAL._AC_UF894,1000_QL80_.jpg" },
+            src: "https://image.tmdb.org/t/p/original/xoRYlOQMCooz3jcwdtt348qB9oj.jpg" },
         {
-            title: '',
-            description: '',
+            title: 'Pride and Prejudice',
+            description: 'A classic adaptation of Jane Austen's novel, this mini-series follows the tumultuous relationship between Elizabeth Bennet and Mr. Darcy in 19th century England.',
             status: false,
-            src: "https://i.pinimg.com/originals/66/bd/9b/66bd9b1f8354a9aa6900dee35bc2a911.jpg" },
+            src: "https://alchetron.com/cdn/pride-and-prejudice-1995-tv-series-e31becc4-272f-4ac0-a55e-6b396c90983-resize-750.jpeg" },
         {
-            title: '',
-            description: '',
+            title: 'The Witcher',
+            description: 'Based on the book series by Andrzej Sapkowski, this fantasy series follows Geralt of Rivia, a monster hunter known as a Witcher, as he navigates a world filled with supernatural beings, political intrigue, and moral ambiguity.',
             status: false,
-            src: "https://i.etsystatic.com/41716657/r/il/9c990a/4742863548/il_570xN.4742863548_patj.jpg" },
+            src: "https://tse4.mm.bing.net/th?id=OIP.R7qVsA4aqAqOnGSQjihrXwHaLH&pid=Api" },
         {
-            title: '',
-            description: '',
+            title: 'Doctor Who',
+            description: 'A British sci-fi series following the adventures of the Doctor, a time-traveling alien, and his companions as they explore the universe, battle villains, and save civilizations aboard the TARDIS, a spaceship disguised as a British police box.',
             status: false,
-            src: "https://m.media-amazon.com/images/I/51b6mLCvBuL._AC_UF894,1000_QL80_.jpg" },
+            src: "https://fanaru.com/doctor-who/image/7739-doctor-who-doctor-who-poster.jpg" },
         {
-            title: '',
-            description: '',
+            title: 'My Little Pony: Friendship is Magic',
+            description: 'An animated series that follows the adventures of Twilight Sparkle and her friends, known as the Mane Six, as they learn about the magic of friendship in the colorful land of Equestria. Through their adventures, they encounter challenges, make new friends, and learn valuable lessons about loyalty, honesty, kindness, generosity, laughter, and magic.',
             status: false,
-            src: "https://m.media-amazon.com/images/M/MV5BMDJhMGRjN2QtNDUxYy00NGM3LThjNGQtMmZiZTRhNjM4YzUxL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_.jpg" },
-        {
-            title: '',
-            description: '',
-            status: false,
-            src: "https://m.media-amazon.com/images/I/91K98RNBBWL.jpg" },
-        {
-            title: '',
-            description: '',
-            status: false,
-            src: "https://m.media-amazon.com/images/I/61f1bYNLpKL._AC_UF1000,1000_QL80_.jpg" },
-        {
-            title: '',
-            description: '',
-            status: false,
-            src: "https://m.media-amazon.com/images/I/71U8fIXlGHL._AC_UF894,1000_QL80_.jpg" },
-        {
-            title: '',
-            description: '',
-            status: false,
-            src: "https://m.media-amazon.com/images/I/A1M0qlxNo6L.jpg" },
-        {
-            title: '',
-            description: '',
-            status: false,
-            src: "https://m.media-amazon.com/images/I/81ZCRFRoXYL._AC_UF894,1000_QL80_.jpg" },
-        {
-            title: '',
-            description: '',
-            status: false,
-            src: "https://m.media-amazon.com/images/I/81oON83v4WL._AC_UF894,1000_QL80_.jpg" },
-        {
-            title: '',
-            description: '',
-            status: false,
-            src: "https://pbncanvas.com/wp-content/uploads/2022/02/Knives-Out-movie-poster-paint-by-numbers.jpg" },
-        {
-            title: '',
-            description: '',
-            status: false,
-            src: "https://m.media-amazon.com/images/I/61c11xwXFjL._AC_UF894,1000_QL80_.jpg" },
-        {
-            title: '',
-            description: '',
-            status: false,
-            src: "https://i.ebayimg.com/images/g/qHwAAOSw1Y5dcuMC/s-l1600.jpg" },
+            src: "https://picfiles.alphacoders.com/959/thumb-1920-95981.jpg" },
     ]
 </script>
 
