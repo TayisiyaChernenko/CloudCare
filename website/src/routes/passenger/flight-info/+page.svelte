@@ -2,6 +2,7 @@
     import { onMount } from "svelte";
     import Map from "../../../components/Map.svelte";
 	import NavBar from "../../../components/NavBar.svelte";
+	import WiCloud from 'svelte-icons/wi/WiCloud.svelte'
 
     import mapboxgl from "mapbox-gl";
 	mapboxgl.accessToken = 'pk.eyJ1IjoiY2hhcmxpZW1haGFuYSIsImEiOiJja3FicmNhOWQwZDQwMnVvZW5pd3BnNGc4In0._TBwk5GaE5qqih2pilaLNw'
@@ -112,12 +113,20 @@
 			<div id="map"></div>
 		</div>
 		<div class="flex flex-col gap-8 w-1/3">
-			<div id="weather" class="bg-aa-grey text-aa-white rounded-xl h-64 p-6">
+			<div id="weather" class="bg-aa-grey text-aa-white rounded-xl h-64 w-full p-6">
 				<p>Destination</p>
 				<h1 class="text-4xl"><b>{queryCity + " " + queryState}</b></h1>
-				<p>{weather?.main.temp +"°F"}</p>
-				<p>{"Conditions: " + weather?.weather[0].main}</p>
-				<p>{"Wind " + weather?.wind.speed + " mph"}</p>
+				<div class="grid grid-cols-2 h-full w-full">
+					<div class="w-48 h-48 -my-8">
+						<WiCloud />
+						<p class="-my-10 text-center">{"Conditions: " + weather?.weather[0].main}</p>
+					</div>
+					<div class="w-64 text-right pr-4">
+						<br>
+						<p class="text-5xl -mt-4"><b>{weather?.main.temp +"°F"}</b></p>
+						<p>{"Wind " + weather?.wind.speed + " mph"}</p>
+					</div>
+				</div>
 			</div>
 			<div id="connections" class="bg-aa-grey rounded-xl h-64 p-6 text-aa-white">
 				<div class="grid grid-cols-2">
