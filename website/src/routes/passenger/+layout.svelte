@@ -30,6 +30,295 @@
         }
     });
 
+    handsfree.useGesture({
+  "name": "grab-left",
+  "algorithm": "fingerpose",
+  "models": "hands",
+  "confidence": 7.5,
+  "description": [
+    [
+      "addCurl",
+      "Thumb",
+      "HalfCurl",
+      1
+    ],
+    [
+      "addDirection",
+      "Thumb",
+      "DiagonalUpLeft",
+      1
+    ],
+    [
+      "addDirection",
+      "Thumb",
+      "VerticalUp",
+      0.36363636363636365
+    ],
+    [
+      "addCurl",
+      "Index",
+      "FullCurl",
+      1
+    ],
+    [
+      "addDirection",
+      "Index",
+      "DiagonalUpLeft",
+      1
+    ],
+    [
+      "addCurl",
+      "Middle",
+      "FullCurl",
+      1
+    ],
+    [
+      "addDirection",
+      "Middle",
+      "DiagonalUpLeft",
+      1
+    ],
+    [
+      "addCurl",
+      "Ring",
+      "FullCurl",
+      1
+    ],
+    [
+      "addDirection",
+      "Ring",
+      "VerticalUp",
+      1
+    ],
+    [
+      "addDirection",
+      "Ring",
+      "DiagonalUpLeft",
+      0.15384615384615385
+    ],
+    [
+      "addCurl",
+      "Pinky",
+      "FullCurl",
+      1
+    ],
+    [
+      "addDirection",
+      "Pinky",
+      "VerticalUp",
+      1
+    ],
+    [
+      "addDirection",
+      "Thumb",
+      "DiagonalDownLeft",
+      1
+    ],
+    [
+      "addDirection",
+      "Thumb",
+      "VerticalDown",
+      0.36363636363636365
+    ],
+    [
+      "addDirection",
+      "Index",
+      "DiagonalDownLeft",
+      1
+    ],
+    [
+      "addDirection",
+      "Middle",
+      "DiagonalDownLeft",
+      1
+    ],
+    [
+      "addDirection",
+      "Ring",
+      "VerticalDown",
+      1
+    ],
+    [
+      "addDirection",
+      "Ring",
+      "DiagonalDownLeft",
+      0.15384615384615385
+    ],
+    [
+      "addDirection",
+      "Pinky",
+      "VerticalDown",
+      1
+    ]
+  ]
+})
+
+      handsfree.useGesture({
+  "name": "grab-right",
+  "algorithm": "fingerpose",
+  "models": "hands",
+  "confidence": 7.5,
+  "description": [
+    [
+      "addCurl",
+      "Thumb",
+      "HalfCurl",
+      1
+    ],
+    [
+      "addCurl",
+      "Thumb",
+      "NoCurl",
+      0.5789473684210527
+    ],
+    [
+      "addDirection",
+      "Thumb",
+      "DiagonalUpRight",
+      1
+    ],
+    [
+      "addDirection",
+      "Thumb",
+      "VerticalUp",
+      0.2
+    ],
+    [
+      "addCurl",
+      "Index",
+      "FullCurl",
+      1
+    ],
+    [
+      "addDirection",
+      "Index",
+      "DiagonalUpRight",
+      1
+    ],
+    [
+      "addDirection",
+      "Index",
+      "VerticalUp",
+      0.30434782608695654
+    ],
+    [
+      "addCurl",
+      "Middle",
+      "FullCurl",
+      1
+    ],
+    [
+      "addDirection",
+      "Middle",
+      "DiagonalUpRight",
+      1
+    ],
+    [
+      "addDirection",
+      "Middle",
+      "VerticalUp",
+      0.5
+    ],
+    [
+      "addCurl",
+      "Ring",
+      "FullCurl",
+      1
+    ],
+    [
+      "addDirection",
+      "Ring",
+      "DiagonalUpRight",
+      0.15384615384615385
+    ],
+    [
+      "addDirection",
+      "Ring",
+      "VerticalUp",
+      1
+    ],
+    [
+      "addCurl",
+      "Pinky",
+      "FullCurl",
+      1
+    ],
+    [
+      "addDirection",
+      "Pinky",
+      "VerticalUp",
+      1
+    ],
+    [
+      "addDirection",
+      "Pinky",
+      "DiagonalUpLeft",
+      0.034482758620689655
+    ],
+    [
+      "addDirection",
+      "Thumb",
+      "DiagonalDownRight",
+      1
+    ],
+    [
+      "addDirection",
+      "Thumb",
+      "VerticalDown",
+      0.2
+    ],
+    [
+      "addDirection",
+      "Index",
+      "DiagonalDownRight",
+      1
+    ],
+    [
+      "addDirection",
+      "Index",
+      "VerticalDown",
+      0.30434782608695654
+    ],
+    [
+      "addDirection",
+      "Middle",
+      "DiagonalDownRight",
+      1
+    ],
+    [
+      "addDirection",
+      "Middle",
+      "VerticalDown",
+      0.5
+    ],
+    [
+      "addDirection",
+      "Ring",
+      "DiagonalDownRight",
+      0.15384615384615385
+    ],
+    [
+      "addDirection",
+      "Ring",
+      "VerticalDown",
+      1
+    ],
+    [
+      "addDirection",
+      "Pinky",
+      "VerticalDown",
+      1
+    ],
+    [
+      "addDirection",
+      "Pinky",
+      "DiagonalDownLeft",
+      0.034482758620689655
+    ]
+  ],
+  "enabled": true
+})
+
     handsfree.start()
 
       let lastHeld = [{x: 0, y: 0}, {x: 0, y: 0}, {x: 0, y: 0}, {x: 0, y: 0}]
@@ -71,22 +360,6 @@
                       }
                   )
               )
-
-              if (eventMap[pinch] === 'mousedown') {
-                  $el.dispatchEvent(
-                  new MouseEvent('click', {
-                      view: window,
-                      button: 0,
-                      bubbles: true,
-                      cancelable: true,
-                      clientX: pointer.x,
-                      clientY: pointer.y,
-                      movementX: pointer.x - lastHeld[0].x,
-                      movementY: pointer.y - lastHeld[0].y,
-                      }
-                  )
-              )
-              }
           }
           lastHeld[0] = pointer;
       })
@@ -128,24 +401,82 @@
                       }
                   )
               )
+          }
+          lastHeld[1] = pointer;
+      })
 
-              if (eventMap[pinch] === 'mousedown') {
-                  $el.dispatchEvent(
-                  new MouseEvent('click', {
+      document.addEventListener("handsfree-data", event => {
+          const data = event.detail;
+          if (!data.hands) return;
+          if (!data.hands.gesture) return;
+          if (!data.hands.gesture[0]) return;
+          if (data.hands.gesture[0].name !== "grab-left") return;
+          console.log('grab-left', data.hands)
+          if (!data.hands.pointer) return;
+          if (!data.hands.pointer[0]) return;
+          if (!data.hands.pointer[0].isVisible) return;
+          console.log('after')
+
+          if (data.hands.gesture[0].confidence < 7.5) {
+            return;
+          }
+
+          let hand = data.hands
+          let pointer = hand.pointer[0];
+
+          const $el = document.elementFromPoint(pointer.x, pointer.y)
+          if ($el) {
+              $el.dispatchEvent(
+                  new MouseEvent("click", {
                       view: window,
                       button: 0,
                       bubbles: true,
                       cancelable: true,
                       clientX: pointer.x,
                       clientY: pointer.y,
-                      movementX: pointer.x - lastHeld[1].x,
-                      movementY: pointer.y - lastHeld[1].y,
+                      movementX: pointer.x - lastHeld[0].x,
+                      movementY: pointer.y - lastHeld[0].y,
                       }
                   )
               )
-              }
           }
-          lastHeld[1] = pointer;
+      })
+
+      document.addEventListener("handsfree-data", event => {
+          const data = event.detail;
+          if (!data.hands) return;
+          if (!data.hands.gesture) return;
+          if (!data.hands.gesture[1]) return;
+          if (data.hands.gesture[1].name !== "grab-right") return;
+          console.log('grab-right', data.hands)
+          if (!data.hands.pointer) return;
+          if (!data.hands.pointer[1]) return;
+          if (!data.hands.pointer[1].isVisible) return;
+          console.log('after')
+
+          if (data.hands.gesture[1].confidence < 7.5) {
+            return;
+          }
+
+          let hand = data.hands
+          let pointer = hand.pointer[1];
+
+          const $el = document.elementFromPoint(pointer.x, pointer.y)
+          if ($el) {
+              $el.dispatchEvent(
+                  new MouseEvent("click", {
+                      view: window,
+                      button: 0,
+                      bubbles: true,
+                      cancelable: true,
+                      clientX: pointer.x,
+                      clientY: pointer.y,
+                      movementX: pointer.x - lastHeld[0].x,
+                      movementY: pointer.y - lastHeld[0].y,
+                      }
+                  )
+              )
+          }
       })
   })
 </script>
